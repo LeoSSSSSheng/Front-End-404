@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FrontEnd Assignment - promises</title>
+	<link rel="stylesheet" type="text/css" href="loading.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		//function defination returns a promise
+		function fetchPostsForSubreddit(name){
+			return $.getJSON('https://www.reddit.com/r/' + name + '.json');
+		}
+	</script>
+</head>
+<body>
+<div></div>
+
+<ul></ul>
+
+<script type="text/javascript">
+	//load loading class
+	$("div").addClass("loader");
+	//fetch post titles
+	fetchPostsForSubreddit("javascript").then(function(res){
+		//rander each title as li of an ul
+		for(var i = 0; i < res.data.children.length; i++){
+			$("ul").append($("<li>").text(res.data.children[i].data.title));
+		}
+		//remove loading class when loading finished
+		$("div").removeClass("loader");
+	}, function(error){
+		alert("error")
+	});
+</script>
+</body>
+</html>
