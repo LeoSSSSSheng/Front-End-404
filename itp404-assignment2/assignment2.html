@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HandleBar.js practice</title>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
+	<link rel="stylesheet" type="text/css" href="loading.css">
+</head>
+
+<body>
+<div id="container">
+	<div id="input">
+		<input type="text" name="input" id="text" placeholder="Please enter subreddit you want to search here">
+		<button>Search</button>
+	</div>
+</div>
+
+	
+<template id="display_template">
+	{{#each item}}
+	<div class="eachItem">
+		<a href="{{data.url}}">{{data.title}}</a>
+		<p>The score: {{data.score}}</p>
+		{{#if data.num_comments}}
+		<p>Number of comments: {{data.num_comments}}</p>
+		{{else}}
+		<p>No Comments</p>
+		{{/if}}
+	</div>
+	{{/each}}
+</template>
+<div id="loading"></div>
+
+<div id="item"></div>
+
+
+
+<script type="text/javascript" src="assignment2.js"></script>
+</body>
+</html>
