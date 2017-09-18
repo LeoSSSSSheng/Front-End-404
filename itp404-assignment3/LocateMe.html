@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Locate Me</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var map;
+      var marker;
+      var currentPosition;
+      var infoBox;
+      var geocoder;
+      var latlng;
+
+      function initMap() {
+
+        var address;
+        //using Geolocation API to get the current location.
+        let successHandler = function(position) {
+          currentPosition = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+          map = new google.maps.Map(document.getElementById("map"), {
+            center: currentPosition,
+            zoom: 18
+          });
+          //set image for the marker
+         var image = {
+            url: 'http://cdn.ndtv.com/tech/images/gadgets/pikachu_hi_pokemon.jpg',
+            size: new google.maps.Size(200, 320),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(0, 32),
+            scaledSize: new google.maps.Size(50, 50)
+          };
+
+          marker = new google.maps.Marker({
+            position: currentPosition,
+            map: map,
+            icon: image,
+            animation: google.maps.Animation.DROP
+          });
+          
+          geocoder = new google.maps.Geocoder();
+          //show readable address when maker is clicked
+          geocoder.geocode({
+            location: currentPosition
+          }, function(geocodeResults){
+              address = geocodeResults[0].formatted_address;
+
+              infoBox = new google.maps.InfoWindow({
+                content: address,
+                position: currentPosition
+              });
+
+              google.maps.event.addListener(marker, 'click', function(event){
+                infoBox.open(map);
+              });
+          });
+
+        };
+
+        let errorHandler = function(error) {
+          console.log("error");
+        };
+
+        let options = {};
+        navigator.geolocation.getCurrentPosition(successHandler, errorHandler, options);         
+          
+      }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7gOPUFzpoUk_nJzhTialOIczi5utPvw8&callback=initMap" async defer></script>
+  </body>
+</html>
