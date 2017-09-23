@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+	<script type="text/javascript" src="src/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="src/handlebars-v4.0.10.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+	<div id="bar">
+		<textarea id="text_area" placeholder="Please Enter Github User Name You Would Like to Search" rows="2" cols="50"></textarea>
+	</div>
+
+<div class="button">
+	<button id="search-button">Search</button>
+</div>
+
+<div class="container">
+	<div class="left">
+		<h2>Search Result</h2>
+		<div id="repositories"></div>
+	</div>
+	<div class="right">
+		<h2>Search History</h2>
+		<div id="search_history"></div>
+	</div>
+</div>
+
+
+
+
+<template id="repo-template">
+	{{# each repos}}
+	<div class="repo">
+		<ul>
+			<li>
+				<p><span id="repoName">Repo Name: </span> {{name}}</p>
+				<p><span id="repoName">url: </span> {{html_url}}</p>
+			</li>
+		</ul>
+	</div>
+	{{/each}}
+</template>
+
+
+<template id="searchHistory-template">
+	{{# each searches}}
+	<div class="sh">
+		<p>Term: {{term}}</p>
+		<p>Created At: {{createdAt}}</p>
+	</div>
+	{{/each}}
+</template>
+
+
+
+<script type="text/javascript" src="src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+.container{
+	width: 90%;
+	margin: auto;
+	padding: 10px;
+}
+
+.left {
+	padding-left: 30px;
+	border: black 5px solid;
+	margin-left: 5%;
+	width: 40%;
+	float: left;
+}
+
+.right {
+	border:blue 5px solid;
+	padding-left: 30px;
+	padding-top: 2px;
+	width: 25%;
+	margin-left: 60%;
+}
+#text_area {
+	margin-left: 36%;
+	margin-right: 36%;
+}
+
+.button	{
+	margin-left: 46%;
+}
+
+#repoName {
+	color: blue;
+}
+
+#bar {
+	width: 100%;
+	background-color: grey;
+}
