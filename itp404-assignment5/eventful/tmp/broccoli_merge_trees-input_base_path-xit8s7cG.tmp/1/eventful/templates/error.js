@@ -1,0 +1,1 @@
+export default Ember.HTMLBars.template({"id":"stAa7KCI","block":"{\"symbols\":[],\"statements\":[[6,\"p\"],[7],[0,\"There was an error!\"],[8],[0,\"\\n\"]],\"hasEval\":false}","meta":{"moduleName":"eventful/templates/error.hbs"}});

@@ -1,0 +1,12 @@
+{{#each model.data.children as |event|}}
+<div class="jumbotron">
+  <div class="container">
+    <p>Number of Comments: {{event.data.num_comments}}</p>
+    <p>UPS: {{event.data.ups}}</p>
+    <p>Downs: {{event.data.downs}}</p>
+    <p>Title: {{event.data.title}}</p>	
+    <p>Domain: {{event.data.domain}}</p>
+  </div>
+</div>
+{{/each}}
+{{outlet}}
