@@ -1,0 +1,10 @@
+<div class="container">
+	<h1>Subreddit Search</h1>
+	<div class="page-header">
+		<form onsubmit={{action "searchForReddit"}}>
+			{{input type="text" value=keywords}}
+			<button type="submit">Search</button>
+		</form>
+	</div>
+</div>
+{{outlet}}

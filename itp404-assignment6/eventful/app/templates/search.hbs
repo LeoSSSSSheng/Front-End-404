@@ -1,0 +1,23 @@
+{{#each model.data.children as |event|}}
+<div class="jumbotron">
+  <div class="container">
+    <div class="textContent">
+      <p>Number of Comments: {{event.data.num_comments}}</p>
+      <p>UPS: {{event.data.ups}}</p>
+      <p>Downs: {{event.data.downs}}</p>
+      <p>Title: {{event.data.title}}</p>
+      <p>Domain: {{event.data.domain}}</p>
+    </div>
+    
+    <div class="imageContent">
+      {{#if event.data.thumbnail}}
+      <img src="{{event.data.thumbnail}}" alt="Image is Self">
+      {{else}}
+      <img src="http://lakefarmbeef.co.nz/wp-content/themes/lakefarm/img/noimage.png" width="160" height="120">
+      {{/if}}
+    </div>
+
+  </div>
+</div>
+{{/each}}
+{{outlet}}
