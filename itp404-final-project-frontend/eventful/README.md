@@ -13,20 +13,35 @@ How will the project requirements be fulfilled?
 API endpoints:
 
 one api service for data storage and following are the end points for them
+
 super_note/add
+
 super_note/delete
+
 super_note/update
+
 super_note/get
 
 one api service for the main app interface
+
 page/
+
   the main route, with buttons for navigation, welcome page
+
 page/search
+
   search node and display them, with function that display all
+
   page/search/display_all
+
 page/edit
+
   edit route to upload new notes, including text, pictures, may be audio
+
 page/location_view
+
   route dedicated for google api, view of the location of all notes taken.
+  
 page/advanced
+
   route for some non-trivial data processing helping organizing notes and generate statistics for display.
